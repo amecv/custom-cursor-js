@@ -1,15 +1,8 @@
 # Custom Cursor With UI interactions :sparkles:
 
-Using vanilla js and css
+Using vanilla js and css. See on [CodePen](https://codepen.io/amecv/pen/JjLQjKO)
 
 <img src="https://media.giphy.com/media/9qPw6B0HAnyUl4Bfbq/giphy.gif" style="width: 100%"/>
-
-## See on CodePen
-<iframe height="300" style="width: 100%;" scrolling="no" title="Custom Cursor With Button Interaction - v2" src="https://codepen.io/amecv/embed/preview/JjLQjKO?default-tab=js%2Cresult&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/amecv/pen/JjLQjKO">
-  Custom Cursor With Button Interaction - v2</a> by Amec Velásquez (<a href="https://codepen.io/amecv">@amecv</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
 
 ## Usage
 
