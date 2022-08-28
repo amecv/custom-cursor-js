@@ -2,7 +2,7 @@
 
 Using vanilla js and css
 
-<img src="https://media.giphy.com/media/g5PyPXGv6JdWk9mLhW/giphy.gif"/>
+<img src="https://media.giphy.com/media/9qPw6B0HAnyUl4Bfbq/giphy.gif"/>
 
 ## Usage
 
