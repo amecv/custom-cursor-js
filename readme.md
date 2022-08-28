@@ -1,8 +1,8 @@
-# Custom Cursor With UI interactions
+# Custom Cursor With UI interactions :sparkles:
 
 Using vanilla js and css
 
-<img src="https://media.giphy.com/media/9qPw6B0HAnyUl4Bfbq/giphy.gif"/>
+<img src="https://media.giphy.com/media/9qPw6B0HAnyUl4Bfbq/giphy.gif" style="width: 100%"/>
 
 ## Usage
 
@@ -41,7 +41,7 @@ startCustomCursor();
 
 **Optional parameters:**
 
-- list of elements to interact with in CSS selector format
+- list of elements to interact with as a string using CSS selector format
 
 ```js
 startCustomCursor('button, a');
