@@ -2,6 +2,8 @@
 
 Using vanilla js and css
 
+<img src="https://media.giphy.com/media/g5PyPXGv6JdWk9mLhW/giphy.gif"/>
+
 ## Usage
 
 Add the CSS and Javascript file in your HTML
