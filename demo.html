@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor</title>
+</head>
+<body>
+    <div class="container has-custom-cursor">
+        <div id="custom-cursor"></div>
+        <div class="container">
+            <h1>Custom Cursor
+                <small>With ui interactions</small>
+            </h1>
+            <div class="container demo">
+            <nav>
+                <a class="logo"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg></a>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <p><button>Button</button> <button>Button</button> <button>Button</button></p>
+            <p>Hello there! here is some text with an <a href="#">Inline link</a> and some more text after it.</p>
+        </div>
+    </div>
+    <link rel="stylesheet" href="customCursor.min.css">
+    <script src="customCursor.min.js"></script>
+    <script>
+        startCustomCursor('button, a');
+    </script>
+    <style>
+        /* Page Styles */
+        :root {
+            --accent-color: #f7b32b;
+            --background-color: #1b1b1e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ::selection {
+            color: var(--background-color);
+            background: var(--accent-color);
+        }
+
+        body {
+            color: #fafafa;
+            background-color: #111112;
+            font-family: Inter, sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: no-wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body > .container {
+            position: absolute;
+            inset: 0;
+        }
+
+        .container.demo {
+            background-color: var(--background-color);
+            height: fit-content;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .container.demo p {
+            padding-left: 1rem;
+            padding-left: 1rem;
+        }
+
+        h1 {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        h1 small {
+            display: block;
+            font-size: 60%;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        button {
+            position: relative;
+            padding: 0.5em 1em;
+            font-size: 1.15rem;
+            border: none;
+            background: #fafafa;
+            color: var(--background-color);
+            border-radius: 5px;
+            letter-spacing: 1px;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: 0 0.5em 0.5em;
+        }
+
+        a {
+            position: relative;
+            color: var(--accent-color);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        a:hover, a:focus {
+            color: #fafafa;
+        }
+
+        nav {
+            background: #111112;
+            width: 100%;
+            border-radius: 100px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0 1.5rem;
+        }
+
+        nav .logo {
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            font-size: 32px;
+        }
+
+        nav .logo svg {
+            height: 100%;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav a {
+            color: #fafafa;
+            display: inline-block;
+            text-decoration: none;
+            line-height: 1;
+            border-radius: 1em;
+            cursor: pointer;
+        }
+
+        nav a:active {
+            color: var(--accent-color);
+        }
+
+        nav ul a {
+            padding: 2px 6px;
+        }
+    </style>
+</body>
+</html>
