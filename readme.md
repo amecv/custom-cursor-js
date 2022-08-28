@@ -48,5 +48,5 @@ startCustomCursor('button, a');
 - disable "sticky" behaviour by using `false` as a seccond parameter
 
 ```js
-startCustomCursor('button, a');
+startCustomCursor('button, a', false);
 ```
