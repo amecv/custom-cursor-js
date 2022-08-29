@@ -1,9 +1,3 @@
-// List of elements to interact width, in CSS selector format
-const interactWith = 'button, a';
-
-// Initialize custom cursor
-startCustomCursor(interactWith);
-
 function startCustomCursor(interactionSelector = '', sticky=true) {
     //don't do anything on touch screens
     if(!(( 'ontouchstart' in window ) || ( navigator.maxTouchPoints > 0 ) || ( navigator.msMaxTouchPoints > 0 ))) {
@@ -14,9 +8,11 @@ function startCustomCursor(interactionSelector = '', sticky=true) {
         const buttonsQuery = interactionSelector.split(',').map((i) => i = '.has-custom-cursor ' + i.trim()).join(', ');
         const buttons = document.querySelectorAll(buttonsQuery);
 
-        //Prep for animation: adding 'will-change: transform' improves animation performance
         Array.from(buttons).some((btn) => {
+            //Prep for animation: adding 'will-change: transform' improves animation performance
             btn.style.willChange = 'transform';
+            //reset animation when the mouse leaves
+            btn.onmouseleave = () => btn.style.transform = '';
         });
 
         //Get CSS options
@@ -99,9 +95,6 @@ function checkForCursorInteraction(e, cursorOptions, buttonList, sticky) {
         //click animation
         btn.onmousedown = () => btn.style.transform = btn.style.transform + ` scale(0.95)`;
         btn.onmouseup = () => btn.style.transform = btn.style.transform.replace(` scale(0.95)`, '');
-        
-        //reset animation when the mouse leaves
-        btn.onmouseleave = () => btn.style.transform = '';
 
         //if the cursor is interacting with this button, animate it
         if (
@@ -111,8 +104,8 @@ function checkForCursorInteraction(e, cursorOptions, buttonList, sticky) {
             e.clientX <= interactionRight
         ) {
             window.cursorInteraction = true;
-            const movementY = (e.clientY - (buttonPosition.top + buttonPosition.height / 2 + interactionBuffer)) / 8;
-            const movementX = (e.clientX - (buttonPosition.left + buttonPosition.width / 2 + interactionBuffer)) / 8;
+            const movementY = sticky ? (e.clientY - (buttonPosition.top + buttonPosition.height / 2 + interactionBuffer)) / 8 : 0;
+            const movementX = sticky ? (e.clientX - (buttonPosition.left + buttonPosition.width / 2 + interactionBuffer)) / 8 : 0;
             btn.style.transform = `translate(${movementX}px, ${movementY}px)`;
             cursorOptions.cursorElement.classList.add('active');
             cursorOptions.cursorElement.style.transform = `translateX(${buttonTransform.x}px) translateY(${buttonTransform.y}px) translate(-50%, -50%)`;
