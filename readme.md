@@ -1,6 +1,6 @@
 # Custom Cursor With UI interactions :sparkles:
 
-Using vanilla JavaScript and CSS. Inspired in part bit the iPadOS mouse cursor interactions.
+Using vanilla JavaScript and CSS. Inspired in part by the iPadOS mouse cursor interactions.
 
 See on [CodePen](https://codepen.io/amecv/pen/JjLQjKO)
 
