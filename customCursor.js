@@ -1,3 +1,9 @@
+// List of elements to interact width, in CSS selector format
+const interactWith = 'button, a';
+
+// Initialize custom cursor
+startCustomCursor(interactWith);
+
 function startCustomCursor(interactionSelector = '', sticky=true) {
     //don't do anything on touch screens
     if(!(( 'ontouchstart' in window ) || ( navigator.maxTouchPoints > 0 ) || ( navigator.msMaxTouchPoints > 0 ))) {
@@ -11,8 +17,13 @@ function startCustomCursor(interactionSelector = '', sticky=true) {
         Array.from(buttons).some((btn) => {
             //Prep for animation: adding 'will-change: transform' improves animation performance
             btn.style.willChange = 'transform';
+            
             //reset animation when the mouse leaves
             btn.onmouseleave = () => btn.style.transform = '';
+            
+            //click animation
+            btn.onmousedown = () => btn.style.transform = btn.style.transform + ` scale(0.95)`;
+            btn.onmouseup = () => btn.style.transform = btn.style.transform.replace(` scale(0.95)`, '');
         });
 
         //Get CSS options
@@ -33,6 +44,13 @@ function startCustomCursor(interactionSelector = '', sticky=true) {
 
         // Update cursor position and check for interactions 
         window.onmousemove = (e) => {
+            window.requestAnimationFrame(() => {
+                updateCursor(cursorOptions, e);
+                checkForCursorInteraction(e, cursorOptions, buttons, sticky);
+            });
+        };
+        
+        window.onscroll = (e) => {
             window.requestAnimationFrame(() => {
                 updateCursor(cursorOptions, e);
                 checkForCursorInteraction(e, cursorOptions, buttons, sticky);
@@ -91,10 +109,6 @@ function checkForCursorInteraction(e, cursorOptions, buttonList, sticky) {
             x: buttonPosition.left + buttonPosition.width / 2,
             y: buttonPosition.top + buttonPosition.height / 2,
         }
-
-        //click animation
-        btn.onmousedown = () => btn.style.transform = btn.style.transform + ` scale(0.95)`;
-        btn.onmouseup = () => btn.style.transform = btn.style.transform.replace(` scale(0.95)`, '');
 
         //if the cursor is interacting with this button, animate it
         if (
