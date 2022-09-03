@@ -37,7 +37,7 @@ function startCustomCursor(interactionSelector = '', sticky=true) {
             cursorPositionOffset: cursorElementRect.height / 2,
             cursorSize: cursorSize,
             cursorInteractionPadding: cursorInteractionPadding,
-            cursorInteractionBuffer: (cursorSize / 2) + (cursorBorderWidth * 2) + cursorInteractionPadding,
+            cursorInteractionBuffer: (cursorSize / 2) + cursorBorderWidth  + cursorInteractionPadding,
             cursorBorderWidth: cursorBorderWidth,
             cursorButtonOffset: cursorInteractionPadding + (cursorBorderWidth * 2)
         }
