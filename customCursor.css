@@ -29,6 +29,8 @@
     opacity: 0.85;
 }
 
-.has-custom-cursor:hover #custom-cursor {
-    opacity: 1;
+@media (pointer: fine) {
+    .has-custom-cursor:hover #custom-cursor {
+        opacity: 1;
+    }
 }

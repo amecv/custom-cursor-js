@@ -6,6 +6,11 @@ See on [CodePen](https://codepen.io/amecv/pen/JjLQjKO)
 
 <img src="https://media.giphy.com/media/9qPw6B0HAnyUl4Bfbq/giphy.gif" style="width: 100%"/>
 
+
+## :warning: Warning
+
+This gets a bit janky on Safari, I'm working on figuring that out. Suggestions are welcome!
+
 ## Usage
 
 Add the CSS and Javascript file in your HTML
@@ -53,4 +58,12 @@ startCustomCursor('button, a');
 
 ```js
 startCustomCursor('button, a', false);
+```
+
+- recommended: don't enable on touch devices
+
+```js
+if (matchMedia('(pointer:fine)').matches) {
+    startCustomCursor('button, a');
+}
 ```

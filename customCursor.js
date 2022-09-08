@@ -1,9 +1,3 @@
-// List of elements to interact width, in CSS selector format
-const interactWith = 'button, a';
-
-// Initialize custom cursor
-startCustomCursor(interactWith);
-
 function startCustomCursor(interactionSelector = '', sticky=true) {
     //don't do anything on touch screens
     if(!(( 'ontouchstart' in window ) || ( navigator.maxTouchPoints > 0 ) || ( navigator.msMaxTouchPoints > 0 ))) {
@@ -116,7 +110,7 @@ function checkForCursorInteraction(e, cursorOptions, buttonList, sticky) {
             e.clientY <= interactionBottom &&
             e.clientX >= interactionLeft &&
             e.clientX <= interactionRight &&
-            document.elementFromPoint(e.clientX, e.clientY) === btn
+            (document.elementFromPoint(e.clientX, e.clientY) === btn || btn.contains(document.elementFromPoint(e.clientX, e.clientY)))
         ) {
             window.cursorInteraction = true;
             const movementY = sticky ? (e.clientY - (buttonPosition.top + buttonPosition.height / 2 + interactionBuffer)) / 8 : 0;

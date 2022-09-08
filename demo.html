@@ -29,7 +29,13 @@
     <link rel="stylesheet" href="customCursor.min.css">
     <script src="customCursor.min.js"></script>
     <script>
-        startCustomCursor('button, a');
+        // List of elements to interact width, in CSS selector format
+        const interactWith = 'button, a';
+
+        // Initialize custom cursor only if device has mouse
+        if (matchMedia('(pointer:fine)').matches) {
+            startCustomCursor(interactWith);
+        }
     </script>
     <style>
         /* Page Styles */
