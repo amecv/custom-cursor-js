@@ -115,7 +115,8 @@ function checkForCursorInteraction(e, cursorOptions, buttonList, sticky) {
             e.clientY >= interactionTop &&
             e.clientY <= interactionBottom &&
             e.clientX >= interactionLeft &&
-            e.clientX <= interactionRight
+            e.clientX <= interactionRight &&
+            document.elementFromPoint(e.clientX, e.clientY) === btn
         ) {
             window.cursorInteraction = true;
             const movementY = sticky ? (e.clientY - (buttonPosition.top + buttonPosition.height / 2 + interactionBuffer)) / 8 : 0;
